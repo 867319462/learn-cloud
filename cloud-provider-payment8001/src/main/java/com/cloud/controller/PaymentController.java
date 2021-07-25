@@ -33,6 +33,7 @@ public class PaymentController {
         return new Result<>(200, "OK", list);
     }
 
+    @ApiOperation("添加支付信息")
     @PostMapping("/add")
     public Result<Void> add(@RequestBody Payment payment) {
         boolean save = paymentService.save(payment);
