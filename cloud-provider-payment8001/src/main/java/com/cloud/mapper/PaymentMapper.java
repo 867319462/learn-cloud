@@ -1,11 +1,11 @@
 package com.cloud.mapper;
 
-import com.cloud.entity.Payment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.cloud.entity.Payment;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author wangxl

@@ -117,7 +117,7 @@ public class MysqlGenerator {
             @Override
             public boolean isCreate(ConfigBuilder configBuilder, FileType fileType, String filePath) {
                 // 不创建 xml
-                if (FileType.XML == fileType){
+                if (FileType.XML == fileType) {
                     return false;
                 }
 

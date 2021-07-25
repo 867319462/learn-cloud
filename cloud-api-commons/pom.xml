@@ -17,6 +17,18 @@
     </properties>
 
     <dependencies>
+        <!-- web 开发 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- 代码工具 -->
         <dependency>
             <groupId>cn.hutool</groupId>
