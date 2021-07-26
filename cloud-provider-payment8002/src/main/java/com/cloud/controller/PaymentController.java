@@ -37,7 +37,7 @@ public class PaymentController {
     public Result<List<Payment>> list() {
         List<Payment> list = paymentService.list();
 
-        log.info("serverPort:{}", serverPort);
+        log.info("serverPort:{}",serverPort);
 
         return new Result<>(200, "OK，serverPort：" + serverPort, list);
     }
@@ -47,7 +47,7 @@ public class PaymentController {
     public Result<Void> add(@RequestBody Payment payment) {
         boolean save = paymentService.save(payment);
 
-        log.info("serverPort:{}", serverPort);
+        log.info("serverPort:{}",serverPort);
 
         return save ? new Result<>(200, "OK，serverPort：" + serverPort) : new Result<>(201, "FAIL");
     }
