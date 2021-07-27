@@ -33,4 +33,10 @@ public class OrderController {
     public Result list() {
         return restTemplate.getForObject(PAYMENT_URL + "/list", Result.class);
     }
+
+    @ApiOperation("发现信息")
+    @GetMapping("/payment/discovery")
+    public Result discovery() {
+        return restTemplate.getForObject(PAYMENT_URL + "/discovery", Result.class);
+    }
 }

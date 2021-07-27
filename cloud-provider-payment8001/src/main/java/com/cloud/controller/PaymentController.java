@@ -1,6 +1,7 @@
 package com.cloud.controller;
 
 
+import cn.hutool.json.JSONObject;
 import com.cloud.entity.Payment;
 import com.cloud.service.IPaymentService;
 import com.cloud.vo.Result;
@@ -9,8 +10,11 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +36,9 @@ public class PaymentController {
     @Autowired
     private IPaymentService paymentService;
 
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
     @ApiOperation("查询所有支付信息")
     @GetMapping("/list")
     public Result<List<Payment>> list() {
@@ -50,5 +57,29 @@ public class PaymentController {
         log.info("serverPort:{}", serverPort);
 
         return save ? new Result<>(200, "OK，serverPort：" + serverPort) : new Result<>(201, "FAIL");
+    }
+
+    @ApiOperation("发现信息")
+    @GetMapping("/discovery")
+    public Result<JSONObject> discovery(){
+        JSONObject jsonObject = new JSONObject();
+
+        List<String> services = discoveryClient.getServices();
+        int order = discoveryClient.getOrder();
+        String description = discoveryClient.description();
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+
+        List<String> instanceList = new ArrayList<>();
+        for (ServiceInstance instance : instances) {
+            String ins = instance.getServiceId() + "  " + instance.getPort() + "  " + instance.getUri();
+            instanceList.add(ins);
+        }
+
+        jsonObject.set("services",services);
+        jsonObject.set("order",order);
+        jsonObject.set("description",description);
+        jsonObject.set("instances",instanceList);
+
+        return new Result<>(200, "OK", jsonObject);
     }
 }
