@@ -65,6 +65,6 @@ eureka:
     # 显示 ip
     prefer-ip-address: true
     # 客户端向服务端发送心跳的时间间隔 s
-    lease-renewal-interval-in-seconds: 1
+#    lease-renewal-interval-in-seconds: 1
     # 服务端在收到最后一次心跳后等待时间上限，超时则剔除服务 s
-    lease-expiration-duration-in-seconds: 2
+#    lease-expiration-duration-in-seconds: 2
