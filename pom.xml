@@ -19,6 +19,7 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-provider-payment8011</module>
         <module>cloud-provider-payment8021</module>
+        <module>cloud-provider-payment8031</module>
         <module>cloud-consumer-order80</module>
         <module>cloud-consumer-consul-order80</module>
         <module>cloud-consumer-feign-order80</module>
