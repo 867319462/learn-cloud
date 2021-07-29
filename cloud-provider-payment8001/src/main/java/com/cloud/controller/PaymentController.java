@@ -82,4 +82,15 @@ public class PaymentController {
 
         return new Result<>(200, "OK", jsonObject);
     }
+
+    @ApiOperation("测试超时方法")
+    @GetMapping("/timeout")
+    public Result<String> timeout(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new Result<>(200, "OK", serverPort);
+    }
 }
