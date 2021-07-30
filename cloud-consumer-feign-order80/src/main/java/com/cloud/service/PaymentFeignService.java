@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -17,17 +18,18 @@ import java.util.List;
  */
 @Component
 @FeignClient(value = "CLOUD-PAYMENT-SERVICE")
+@RequestMapping("/payment")
 public interface PaymentFeignService {
 
-    @GetMapping("/payment/list")
+    @GetMapping("/list")
     Result<List<Payment>> list();
 
-    @PostMapping("/payment/add")
+    @PostMapping("/add")
     Result<Void> add(@RequestBody Payment payment);
 
-    @GetMapping("/payment/discovery")
+    @GetMapping("/discovery")
     Result<JSONObject> discovery();
 
-    @GetMapping("/payment/timeout")
+    @GetMapping("/timeout")
     Result<String> timeout();
 }
