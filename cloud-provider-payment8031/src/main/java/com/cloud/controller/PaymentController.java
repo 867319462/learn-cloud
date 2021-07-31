@@ -46,4 +46,18 @@ public class PaymentController {
         String s = paymentService.paymentTimeOut(id);
         return new Result<>(200, "OK", serverPort + " " + s);
     }
+
+    @ApiOperation("测试方法错误")
+    @GetMapping("/error")
+    public Result<String> error(@RequestParam("id") String id) {
+        String s = paymentService.paymentError(id);
+        return new Result<>(200, "OK", serverPort + " " + s);
+    }
+
+    @ApiOperation("测试服务熔断")
+    @GetMapping("/circuitBreaker")
+    public Result<String> paymentCircuitBreaker(@RequestParam("id") String id) {
+        String s = paymentService.paymentCircuitBreaker(id);
+        return new Result<>(200, "ok", s);
+    }
 }

@@ -11,14 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author wangxl
  * @date 2021/7/29 21:04
  */
-@Component
-@FeignClient(value = "CLOUD-HYSTRIX-PAYMENT-SERVICE")
-@RequestMapping("/payment")
+@FeignClient(value = "CLOUD-HYSTRIX-PAYMENT-SERVICE", fallback = PaymentFallBackImpl.class)
 public interface PaymentFeignService {
 
-    @GetMapping("/success")
+    @GetMapping("/payment/success")
     Result<String> success(@RequestParam("id") String id);
 
-    @GetMapping("/timeout")
+    @GetMapping("/payment/timeout")
     Result<String> timeout(@RequestParam("id") String id);
 }

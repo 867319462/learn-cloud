@@ -15,4 +15,8 @@ public interface IPaymentService extends IService<Payment> {
     String paymentSuccess(String id);
 
     String paymentTimeOut(String id);
+
+    String paymentError(String id);
+
+    String paymentCircuitBreaker(String id);
 }

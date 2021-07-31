@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-eureka-server7001</artifactId>
+    <artifactId>cloud-consumer-hystrix-dashboard9001</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,10 +24,11 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- eureka-server -->
+        <!-- hystrix 监控 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
         </dependency>
     </dependencies>
+
 </project>
