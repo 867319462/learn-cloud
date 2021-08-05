@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloudalibaba-consumer-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.23.21
+
+server-uri:
+  nacos-user-server: http://cloudalibaba-provider-payment

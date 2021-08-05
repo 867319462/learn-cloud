@@ -1,0 +1,18 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: cloudalibaba-nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.23.21
+      config:
+        server-addr: 192.168.23.21
+        # 指定文件格式
+        file-extension: yaml
+        # 指定分组
+        group: TEST_GROUP
+        # 命名空间 - 分组 - profile
+        # namespace: 6c181995-9cb1-4edf-abdb-097b5557a774
