@@ -7,6 +7,9 @@ spring:
   cloud:
     nacos:
       discovery:
+        # 单机版
+        #server-addr: 192.168.23.21:8848
+        # 集群版
         server-addr: 192.168.23.21
 
 management:
