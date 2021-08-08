@@ -8,6 +8,9 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.23.21
+    sentinel:
+      transport:
+        dashboard: 192.168.23.21:8858
 
 server-uri:
   nacos-user-server: http://cloudalibaba-provider-payment

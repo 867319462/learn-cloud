@@ -24,4 +24,13 @@ public class NacosController {
     public String port() {
         return "本服务端口为：" + serverPort;
     }
+
+    @ApiOperation("回调测试")
+    @GetMapping("/fallbackTest")
+    public String fallbackTest(int key) {
+        if (key == 10) {
+            throw new RuntimeException("端口号：" + serverPort + " 错了！！！！！");
+        }
+        return "本服务端口为：" + serverPort;
+    }
 }

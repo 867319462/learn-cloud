@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloudalibaba-consumer-order80</artifactId>
+    <artifactId>cloudalibaba-sentinel-service8851</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,12 +24,12 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- nacos -->
+        <!-- nacos 服务发现 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        
+
         <!-- sentinel 流量卫兵 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -42,11 +42,16 @@
             <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
 
-        <!-- 没有这个依赖会报错，添加校验，只能是这个版本，其他版本报错 -->
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- 没有这个依赖会报错，添加校验，只能是这个版本，其他版本报错 -->
+        <!--<dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.2.4.Final</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>
